@@ -24,12 +24,12 @@
     },
     "autoload": {
         "psr-4": {
-            "LaravelIdeHelperCompanion\\": "src/"
+            "IdeHelperCompanion\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "LaravelIdeHelperCompanion\\Tests\\": "tests/",
+            "IdeHelperCompanion\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -61,7 +61,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "michiruf\\LaravelIdeHelperCompanion\\LaravelIdeHelperCompanionServiceProvider"
+                "IdeHelperCompanion\\IdeHelperCompanionServiceProvider"
             ]
         }
     },

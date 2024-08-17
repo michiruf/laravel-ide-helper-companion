@@ -1,10 +1,10 @@
 <?php
 
-namespace LaravelIdeHelperCompanion\Tests;
+namespace IdeHelperCompanion\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use LaravelIdeHelperCompanion\LaravelIdeHelperCompanionServiceProvider;
+use IdeHelperCompanion\IdeHelperCompanionServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -13,14 +13,14 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'michiruf\\LaravelIdeHelperCompanion\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'IdeHelperCompanion\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 
     protected function getPackageProviders($app): array
     {
         return [
-            LaravelIdeHelperCompanionServiceProvider::class,
+            IdeHelperCompanionServiceProvider::class,
         ];
     }
 
