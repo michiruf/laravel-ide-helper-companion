@@ -10,6 +10,10 @@ updates:
       interval: "weekly"
     labels:
       - "dependencies"
+    groups:
+      dependencies:
+        patterns:
+          - "*"
 
   - package-ecosystem: "composer"
     directory: "/"
@@ -17,3 +21,7 @@ updates:
       interval: "weekly"
     labels:
       - "dependencies"
+    groups:
+      dependencies:
+        patterns:
+          - "*"
