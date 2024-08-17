@@ -24,13 +24,12 @@
     },
     "autoload": {
         "psr-4": {
-            "michiruf\\LaravelIdeHelperCompanion\\": "src/",
-            "michiruf\\LaravelIdeHelperCompanion\\Database\\Factories\\": "database/factories/"
+            "LaravelIdeHelperCompanion\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "michiruf\\LaravelIdeHelperCompanion\\Tests\\": "tests/",
+            "LaravelIdeHelperCompanion\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },

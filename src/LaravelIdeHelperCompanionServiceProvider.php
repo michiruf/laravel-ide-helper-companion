@@ -1,10 +1,10 @@
 <?php
 
-namespace michiruf\LaravelIdeHelperCompanion;
+namespace LaravelIdeHelperCompanion;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use michiruf\LaravelIdeHelperCompanion\Commands\IdeHelperCompanionCommand;
+use LaravelIdeHelperCompanion\Commands\IdeHelperCompanionCommand;
 
 /*
  * This class is a Package Service Provider

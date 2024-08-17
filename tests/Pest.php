@@ -1,5 +1,5 @@
 <?php
 
-use michiruf\LaravelIdeHelperCompanion\Tests\TestCase;
+use LaravelIdeHelperCompanion\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);
