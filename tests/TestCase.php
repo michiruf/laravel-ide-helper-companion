@@ -2,9 +2,11 @@
 
 namespace IdeHelperCompanion\Tests;
 
+use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
 use IdeHelperCompanion\IdeHelperCompanionServiceProvider;
+use Workbench\App\Providers\WorkbenchServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -20,7 +22,9 @@ class TestCase extends Orchestra
     protected function getPackageProviders($app): array
     {
         return [
+            IdeHelperServiceProvider::class,
             IdeHelperCompanionServiceProvider::class,
+            WorkbenchServiceProvider::class,
         ];
     }
 

@@ -14,6 +14,7 @@ class WorkbenchServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        Route::view('/', 'welcome');
+        Route::get('/', fn () => 'Hello Workbench!');
+        Route::view('/welcome', 'welcome');
     }
 }
