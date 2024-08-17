@@ -2,7 +2,7 @@
 
 return [
 
-    'base_directory' => 'vendor/laravel-ide-helper-companion/generated',
+    'base_directory' => 'vendor/michiruf/laravel-ide-helper-companion/generated',
 
     'apply_base_directory' => true,
 
