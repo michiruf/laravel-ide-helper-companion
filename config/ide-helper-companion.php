@@ -8,6 +8,8 @@ return [
 
     'write_mixins' => true,
 
+    'write_model_mixins' => false,
+
     'overwrite_ide_helper' => [
         'enabled' => true,
         'include_fluent' => true,

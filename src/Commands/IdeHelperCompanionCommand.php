@@ -49,7 +49,8 @@ class IdeHelperCompanionCommand extends Command
     {
         $this->call('ide-helper:models', [
             '--filename' => $this->filepath('models_filename'),
-            '--write-mixin' => config('ide-helper-companion.write_mixins'),
+            '--write-mixin' => config('ide-helper-companion.write_model_mixins'),
+            '--phpstorm-noinspections' => true
         ]);
     }
 
