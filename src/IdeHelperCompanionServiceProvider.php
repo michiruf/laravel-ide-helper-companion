@@ -3,6 +3,7 @@
 namespace IdeHelperCompanion;
 
 use IdeHelperCompanion\Commands\IdeHelperCompanionCommand;
+use IdeHelperCompanion\Commands\IdeHelperCompanionThrottledCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -19,7 +20,8 @@ class IdeHelperCompanionServiceProvider extends PackageServiceProvider
         $package
             ->name('ide-helper-companion')
             ->hasConfigFile()
-            ->hasCommand(IdeHelperCompanionCommand::class);
+            ->hasCommand(IdeHelperCompanionCommand::class)
+            ->hasCommand(IdeHelperCompanionThrottledCommand::class);
     }
 
     public function boot(): void

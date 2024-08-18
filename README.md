@@ -1,9 +1,12 @@
 # Laravel IDE Helper Companion
 
+This is a zero configuration package around [barryvdh / laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper).
+Which aims to integrate easily with PHPStorm.
+
 ## Installation
 
 1. Add the github repository and the dev dependency in your composer.json like so:
-   ```json
+   ```json5
    {
        // ...
        "repositories": [
@@ -30,6 +33,12 @@ Command:
 ```shell
 php artisan ide-helper-companion
 ```
+
+Command for a file watcher:
+```shell
+php artisan ide-helper-companion:throttled 10
+```
+will execute the command only every 10 seconds, and also will retry the current execution after 10 seconds.
 
 ## License
 
