@@ -40,6 +40,10 @@ php artisan ide-helper-companion:throttled 10
 ```
 will execute the command only every 10 seconds, and also will retry the current execution after 10 seconds.
 
+### Example file watcher for WSL and laravel sail
+
+![Example file watcher](doc/file-watcher.png)
+
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
