@@ -2,12 +2,10 @@
 
 namespace IdeHelperCompanion\Commands;
 
-use Cache;
 use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
-use Symfony\Component\Console\Attribute\AsCommand;
+use Illuminate\Support\Facades\Cache;
 
-#[AsCommand(name: 'ide-helper-companion:throttled')]
 class IdeHelperCompanionThrottledCommand extends Command
 {
     public $signature = 'ide-helper-companion:throttled {throttle=2}';

@@ -2,8 +2,11 @@
 
 namespace IdeHelperCompanion;
 
+use IdeHelperCompanion\Commands\AnnotateCommand;
+use IdeHelperCompanion\Commands\GenerateCommand;
 use IdeHelperCompanion\Commands\IdeHelperCompanionCommand;
 use IdeHelperCompanion\Commands\IdeHelperCompanionThrottledCommand;
+use IdeHelperCompanion\Commands\Overwrite\MyModelsCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -20,6 +23,8 @@ class IdeHelperCompanionServiceProvider extends PackageServiceProvider
         $package
             ->name('ide-helper-companion')
             ->hasConfigFile()
+            ->hasCommand(AnnotateCommand::class)
+            ->hasCommand(GenerateCommand::class)
             ->hasCommand(IdeHelperCompanionCommand::class)
             ->hasCommand(IdeHelperCompanionThrottledCommand::class);
     }
