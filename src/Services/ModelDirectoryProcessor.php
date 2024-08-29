@@ -39,7 +39,7 @@ class ModelDirectoryProcessor
 
     public function processModels(): void
     {
-        $this->classes()->each(fn (ClassDefinition $definition) => app(ModelProcessor::class, [$definition])->process());
+        $this->classes()->each(fn (ClassDefinition $definition) => app(ModelProcessor::class, ['definition' => $definition])->process());
     }
 
     protected function classFinder(): ClassFinder
