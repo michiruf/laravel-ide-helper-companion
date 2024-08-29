@@ -34,7 +34,7 @@ class ClassDefinition
         return $this->reflection()->isSubclassOf('Illuminate\Database\Eloquent\Model');
     }
 
-    protected function reflection(): ReflectionClass
+    public function reflection(): ReflectionClass
     {
         try {
             return $this->reflectionClass ??= new ReflectionClass($this->classString);
