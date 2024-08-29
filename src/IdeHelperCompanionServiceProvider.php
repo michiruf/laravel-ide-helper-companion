@@ -25,8 +25,7 @@ class IdeHelperCompanionServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasCommand(AnnotateCommand::class)
             ->hasCommand(GenerateCommand::class)
-            ->hasCommand(IdeHelperCompanionCommand::class)
-            ->hasCommand(IdeHelperCompanionThrottledCommand::class);
+            ->hasCommand(IdeHelperCompanionCommand::class);
     }
 
     public function boot(): void

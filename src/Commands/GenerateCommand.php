@@ -2,16 +2,28 @@
 
 namespace IdeHelperCompanion\Commands;
 
+use IdeHelperCompanion\Commands\Helper\ThrottleCommandHelper;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 
 class GenerateCommand extends Command
 {
-    public $signature = 'ide-helper-companion:generate';
+    public $signature = 'ide-helper-companion:generate {--throttle=0}';
 
     public $description = 'Command to generate IDE helper files';
 
     public function handle(): int
+    {
+        $throttle = (int) ($this->option('throttle') ?? 0);
+
+        return ThrottleCommandHelper::mayExecuteThrottled(
+            'ide-helper-companion:generate',
+            $throttle,
+            fn () => $this->handleNow()
+        );
+    }
+
+    protected function handleNow(): int
     {
         // Ensure the directory exists
         if (config('ide-helper-companion.apply_base_directory')) {

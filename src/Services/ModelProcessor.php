@@ -16,9 +16,7 @@ class ModelProcessor
 {
     protected Collection $columns;
 
-    protected DocBlock\Serializer $serializer;
     protected DocBlock $phpdoc;
-    protected string $previousDocComment;
 
     public function __construct(
         public ClassDefinition $definition
