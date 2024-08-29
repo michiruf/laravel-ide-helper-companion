@@ -2,7 +2,7 @@ name: Run Tests
 on:
   push:
     branches:
-      - master
+      - main
   workflow_call: # Make this workflow callable from other workflows
   workflow_dispatch: # Make this workflow runnable on github
 
@@ -20,4 +20,4 @@ jobs:
           coverage: true
 
       - name: Run Tests
-        run: php artisan test --exclude-group=long-running,wip,deploy -v --coverage
+        run: ./vendor/bin/pest --exclude-group=long-running,wip,deploy -v --coverage

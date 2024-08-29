@@ -1,5 +1,7 @@
 # Laravel IDE Helper Companion
 
+[![Run Tests](https://github.com/michiruf/laravel-ide-helper-companion/actions/workflows/run-tests.yml/badge.svg)](https://github.com/michiruf/laravel-ide-helper-companion/actions/workflows/run-tests.yml)
+
 This is a zero configuration package around [barryvdh / laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper).
 Which aims to integrate easily with PHPStorm.
 

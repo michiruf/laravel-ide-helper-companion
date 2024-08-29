@@ -21,8 +21,10 @@ runs:
 
     - name: Create Dotenv
       shell: sh
-      run: cp .env.example .env
+      if: ${{ hashFiles('.env.example') != '' }}
+      run: .env.example
 
     - name: Generate App Key
       shell: sh
+      if: ${{ hashFiles('.env') != '' }}
       run: php artisan key:generate
