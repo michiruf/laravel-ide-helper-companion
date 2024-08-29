@@ -3,6 +3,7 @@
 namespace IdeHelperCompanion\Tests;
 
 use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
+use CollectionDiffer\CollectionDifferServiceProvider;
 use IdeHelperCompanion\IdeHelperCompanionServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\File;
@@ -26,6 +27,7 @@ class TestCase extends Orchestra
         return [
             IdeHelperServiceProvider::class,
             IdeHelperCompanionServiceProvider::class,
+            CollectionDifferServiceProvider::class,
             WorkbenchServiceProvider::class,
         ];
     }

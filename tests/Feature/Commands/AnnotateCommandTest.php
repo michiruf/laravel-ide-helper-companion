@@ -1,10 +1,7 @@
 <?php
 
-use IdeHelperCompanion\Data\ClassDefinition;
-use IdeHelperCompanion\Services\ModelProcessor;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Process;
-use Workbench\App\Models\User;
 use function Orchestra\Testbench\package_path;
 
 beforeEach(function () {
@@ -20,18 +17,15 @@ afterEach(function () {
         ->path(package_path())
         ->run();
     expect($gitRevertUserModel)->successful()->toBeTrue();
+
 });
 
-it('can process models', function () {
-    // Perform the processing
-    $classDefinition = new ClassDefinition(User::class, package_path('workbench/app/Models/User.php'));
-    $processor = app(ModelProcessor::class, [
-        'definition' => $classDefinition
-    ]);
-    $processor->process();
+it('can execute the command', function () {
+    // Action
+    $this->artisan('ide-helper-companion:annotate --dir=workbench')->assertOk();
 
     // Expect annotations
-    $file = File::get($classDefinition->filePath);
+    $file = File::get(package_path('workbench/app/Models/User.php'));;
     expect($file)->toContainWithMessage('@property string $name', 'PHPDoc property for "name" nonexistent');
     $match = str($file)->match('|(/\*\*.*\*/)|us');
     expect($match)->toMatchSnapshot();
