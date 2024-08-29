@@ -15,15 +15,22 @@ Which aims to integrate easily with PHPStorm.
            {
                "type": "vcs",
                "url": "https://github.com/michiruf/laravel-ide-helper-companion.git"
+           },
+           {
+               "type": "vcs",
+               "url": "https://github.com/michiruf/laravel-collection-differ.git"
            }
        ],
        "require-dev": {
            // ...
            "michiruf/laravel-ide-helper-companion": "dev-main",
+           "michiruf/laravel-collection-differ": "dev-main",
            // ...
        }
    }
    ```
+   > [!NOTE]
+   > In a future update there will be packages.
 2. Perform a composer update for the package
    ```shell
    composer update michiruf/laravel-ide-helper-companion
@@ -31,14 +38,16 @@ Which aims to integrate easily with PHPStorm.
    
 ## Usage
 
-Command:
+Commands:
 ```shell
-php artisan ide-helper-companion
+php artisan ide-helper-companion {--throttle=0}
+php artisan ide-helper-companion:annotate {--D|dir=} {--throttle=0}
+php artisan ide-helper-companion:generate {--throttle=0}
 ```
 
 Command for a file watcher:
 ```shell
-php artisan ide-helper-companion:throttled 10
+php artisan ide-helper-companion --throttle=10
 ```
 will execute the command only every 10 seconds, and also will retry the current execution after 10 seconds.
 
