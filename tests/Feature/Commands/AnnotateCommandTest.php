@@ -17,7 +17,6 @@ afterEach(function () {
         ->path(package_path())
         ->run();
     expect($gitRevertUserModel)->successful()->toBeTrue();
-
 });
 
 it('can execute the command', function () {

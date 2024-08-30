@@ -14,12 +14,15 @@ use Illuminate\Support\Str;
 
 class ModelProcessor
 {
+    protected Model $model;
+
     protected Collection $columns;
 
     protected DocBlock $phpdoc;
 
     public function __construct(
-        public ClassDefinition $definition
+        public ClassDefinition $definition,
+        public ModelFieldTypeResolver $typeResolver,
     ) {
     }
 
@@ -35,12 +38,11 @@ class ModelProcessor
 
     public function loadModelData(): static
     {
-        /** @var Model $model */
-        $model = app($this->definition->classString);
+        $this->model = app($this->definition->classString);
 
-        $connection = $model->getConnection();
+        $connection = $this->model->getConnection();
         $schema = $connection->getSchemaBuilder();
-        $this->columns = collect($schema->getColumns($model->getTable()));
+        $this->columns = collect($schema->getColumns($this->model->getTable()));
         //$indexes = $schema->getIndexes($model->getTable());
 
         return $this;
@@ -61,9 +63,9 @@ class ModelProcessor
             ->identifyDestinationUsing(fn (array $column) => $column['name'])
             ->handleUnmatchedSourceUsing(fn (PropertyTag $property) => $this->phpdoc->deleteTag($property))
             ->handleUnmatchedDestinationUsing(function (array $column) {
-                $tagLine = trim("@property string \${$column['name']} {$column['comment']}");
-                $tag = Tag::createInstance($tagLine, $this->phpdoc);
-                $this->phpdoc->appendTag($tag);
+                $type = $this->typeResolver->translateDatabaseColumnToPhpType($column, $this->model);
+                $tagLine = trim("@property $type \${$column['name']} {$column['comment']}");
+                $this->phpdoc->appendTag(Tag::createInstance($tagLine, $this->phpdoc));
             })
             ->handleMatchedUsing(function (PropertyTag $property, array $column) {
                 $property->setType('string');
@@ -95,10 +97,5 @@ class ModelProcessor
         File::put($this->definition->filePath, $contents, true);
 
         return $this;
-    }
-
-    public static function translateDatabaseColumnToPhpType(string $columnType): string
-    {
-        return '';
     }
 }
