@@ -7,7 +7,7 @@ it('can execute the command', function () {
     File::deleteDirectory(config('ide-helper-companion.base_directory'));
 
     // Action
-    $this->artisan('ide-helper-companion')->assertOk();
+    $this->artisan('ide-helper-companion:generate')->assertOk();
 
     // Assert: created files
     expect()

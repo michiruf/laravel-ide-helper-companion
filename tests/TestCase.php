@@ -3,9 +3,12 @@
 namespace IdeHelperCompanion\Tests;
 
 use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Orchestra\Testbench\TestCase as Orchestra;
+use CollectionDiffer\CollectionDifferServiceProvider;
 use IdeHelperCompanion\IdeHelperCompanionServiceProvider;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\File;
+use Orchestra\Testbench\TestCase as Orchestra;
+use SplFileInfo;
 use Workbench\App\Providers\WorkbenchServiceProvider;
 
 class TestCase extends Orchestra
@@ -24,6 +27,7 @@ class TestCase extends Orchestra
         return [
             IdeHelperServiceProvider::class,
             IdeHelperCompanionServiceProvider::class,
+            CollectionDifferServiceProvider::class,
             WorkbenchServiceProvider::class,
         ];
     }
@@ -32,9 +36,10 @@ class TestCase extends Orchestra
     {
         config()->set('database.default', 'testing');
 
-        /*
-        $migration = include __DIR__.'/../database/migrations/create_laravel-ide-helper-companion_table.php.stub';
-        $migration->up();
-        */
+        $path = __DIR__.'/../workbench/database/migrations/';
+        collect(File::files($path))->each(function (SplFileInfo $file) use ($path) {
+            $migration = include $path . $file->getFilename();
+            $migration->up();
+        });
     }
 }

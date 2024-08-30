@@ -3,14 +3,17 @@
     "description": "Package that provides convenience features around the barryvdh/laravel-ide-helper package",
     "keywords": [
         "laravel",
-        "laravel-ide-helper-companion"
+        "laravel-ide-helper-companion",
+        "michiruf"
     ],
     "homepage": "https://github.com/michiruf/laravel-ide-helper-companion",
     "license": "MIT",
     "require": {
         "php": "^8.2",
         "barryvdh/laravel-ide-helper": "^3.1",
+        "barryvdh/reflection-docblock": "^2.1",
         "illuminate/contracts": "^10.0||^11.0",
+        "michiruf/laravel-collection-differ": "0.1",
         "spatie/laravel-package-tools": "^1.16"
     },
     "require-dev": {
