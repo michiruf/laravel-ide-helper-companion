@@ -12,20 +12,31 @@ beforeEach(function () {
 });
 
 afterEach(function () {
-    // Revert the user model only
-    $gitRevertUserModel = Process::command('git checkout -- workbench/app/Models/User.php')
+    // Revert the models
+    $gitRevertUserModel = Process::command('git checkout -- workbench/app/Models')
         ->path(package_path())
         ->run();
     expect($gitRevertUserModel)->successful()->toBeTrue();
 });
 
-it('can execute the command', function () {
+it('can execute the command', function ($model) {
     // Action
     $this->artisan('ide-helper-companion:annotate --dir=workbench')->assertOk();
 
     // Expect annotations
-    $file = File::get(package_path('workbench/app/Models/User.php'));;
+    $file = File::get(package_path("workbench/app/Models/$model.php"));
     expect($file)->toContainWithMessage('@property string $name', 'PHPDoc property for "name" nonexistent');
     $match = str($file)->match('|(/\*\*.*\*/)|us');
     expect($match)->toMatchSnapshot();
-});
+})->with(['User', 'Product']);
+
+it('can execute with pint', function ($model) {
+    // Action
+    $this->artisan('ide-helper-companion:annotate --dir=workbench --pint')->assertOk();
+
+    // Expect annotations
+    $file = File::get(package_path("workbench/app/Models/$model.php"));
+    expect($file)->toContainWithMessage('@property string $name', 'PHPDoc property for "name" nonexistent');
+    $match = str($file)->match('|(/\*\*.*\*/)|us');
+    expect($match)->toMatchSnapshot();
+})->with(['User', 'Product']);
