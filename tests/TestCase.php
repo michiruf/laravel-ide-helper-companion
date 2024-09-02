@@ -38,7 +38,7 @@ class TestCase extends Orchestra
 
         $path = __DIR__.'/../workbench/database/migrations/';
         collect(File::files($path))->each(function (SplFileInfo $file) use ($path) {
-            $migration = include $path . $file->getFilename();
+            $migration = include $path.$file->getFilename();
             $migration->up();
         });
     }

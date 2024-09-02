@@ -13,6 +13,6 @@ return [
     'overwrite_ide_helper' => [
         'enabled' => true,
         'include_fluent' => true,
-    ]
+    ],
 
 ];

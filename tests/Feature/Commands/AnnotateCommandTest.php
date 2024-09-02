@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Process;
+
 use function Orchestra\Testbench\package_path;
 
 beforeEach(function () {

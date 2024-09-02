@@ -32,7 +32,7 @@ it('will try to execute the model process', function () {
     app(ModelDirectoryProcessor::class, [
         'classes' => collect([
             new ClassDefinition(User::class, 'irrelevant here'),
-        ])
+        ]),
     ])
         ->filterClasses()
         ->processModels();

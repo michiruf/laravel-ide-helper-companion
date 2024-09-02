@@ -21,7 +21,7 @@ class WorkbenchServiceProvider extends ServiceProvider
         config()->set([
             'ide-helper.model_locations' => [
                 'app',
-                'workbench'
+                'workbench',
             ],
         ]);
     }

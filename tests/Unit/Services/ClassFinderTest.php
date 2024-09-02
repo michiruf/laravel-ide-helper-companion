@@ -1,9 +1,9 @@
 <?php
 
-
 use IdeHelperCompanion\Data\ClassDefinition;
 use IdeHelperCompanion\Services\ClassFinder;
 use Illuminate\Support\Collection;
+
 use function Orchestra\Testbench\package_path;
 
 it('can find classes in a directory', function () {

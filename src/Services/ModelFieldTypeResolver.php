@@ -15,6 +15,7 @@ class ModelFieldTypeResolver
     public function translateDatabaseColumnToPhpType(array $column, Model $model): string
     {
         $dbType = $this->determineDatabaseColumnType($column, $model);
+
         return $this->castDatabaseColumn($dbType, $column, $model);
     }
 
@@ -114,6 +115,7 @@ class ModelFieldTypeResolver
             default:
                 // In case of an optional custom cast parameter, only evaluate until the ':'
                 $cast = strtok($cast, ':');
+
                 return class_exists($cast) ? ('\\'.$cast) : $type;
         }
     }

@@ -23,8 +23,7 @@ class ModelProcessor
     public function __construct(
         public ClassDefinition $definition,
         public ModelFieldTypeResolver $typeResolver,
-    ) {
-    }
+    ) {}
 
     public function process(): void
     {
@@ -79,7 +78,7 @@ class ModelProcessor
 
     public function writeNewPhpDoc(): static
     {
-        $serializer = new DocBlock\Serializer();
+        $serializer = new DocBlock\Serializer;
         $contents = File::get($this->definition->filePath);
         $oldDocComment = $this->definition->reflection()->getDocComment();
         $newDocComment = $serializer->getDocComment($this->phpdoc);

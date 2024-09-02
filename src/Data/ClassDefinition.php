@@ -16,8 +16,7 @@ class ClassDefinition
         /** @var class-string $classString */
         public string $classString,
         public string $filePath,
-    ) {
-    }
+    ) {}
 
     public function classExists(): bool
     {

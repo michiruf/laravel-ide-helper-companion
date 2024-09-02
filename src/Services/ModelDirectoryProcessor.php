@@ -10,12 +10,11 @@ class ModelDirectoryProcessor
     private ClassFinder $classFinder;
 
     /**
-     * @param ?Collection<int, ClassDefinition>  $classes
+     * @param  ?Collection<int, ClassDefinition>  $classes
      */
     public function __construct(
         public ?Collection $classes = null
-    ) {
-    }
+    ) {}
 
     /**
      * @param  string|string[]  $paths

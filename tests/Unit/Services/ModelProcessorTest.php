@@ -5,6 +5,7 @@ use IdeHelperCompanion\Services\ModelProcessor;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Process;
 use Workbench\App\Models\User;
+
 use function Orchestra\Testbench\package_path;
 
 beforeEach(function () {
@@ -26,7 +27,7 @@ it('can process models', function () {
     // Perform the processing
     $classDefinition = new ClassDefinition(User::class, package_path('workbench/app/Models/User.php'));
     $processor = app(ModelProcessor::class, [
-        'definition' => $classDefinition
+        'definition' => $classDefinition,
     ]);
     $processor->process();
 

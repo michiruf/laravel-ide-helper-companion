@@ -60,14 +60,14 @@ class GenerateCommand extends Command
         $this->call('ide-helper:models', [
             '--filename' => $this->filepath('models_filename'),
             '--write-mixin' => config('ide-helper-companion.write_model_mixins'),
-            '--phpstorm-noinspections' => true
+            '--phpstorm-noinspections' => true,
         ]);
     }
 
     protected function ideHelperMetaCommand(): void
     {
         $this->call('ide-helper:meta', [
-            '--filename' => $this->filepath('meta_filename')
+            '--filename' => $this->filepath('meta_filename'),
         ]);
     }
 

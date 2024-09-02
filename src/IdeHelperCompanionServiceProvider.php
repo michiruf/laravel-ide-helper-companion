@@ -5,8 +5,6 @@ namespace IdeHelperCompanion;
 use IdeHelperCompanion\Commands\AnnotateCommand;
 use IdeHelperCompanion\Commands\GenerateCommand;
 use IdeHelperCompanion\Commands\IdeHelperCompanionCommand;
-use IdeHelperCompanion\Commands\IdeHelperCompanionThrottledCommand;
-use IdeHelperCompanion\Commands\Overwrite\MyModelsCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
