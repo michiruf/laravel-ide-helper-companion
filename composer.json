@@ -13,7 +13,7 @@
         "barryvdh/laravel-ide-helper": "^3.1",
         "barryvdh/reflection-docblock": "^2.1",
         "illuminate/contracts": "^10.0||^11.0",
-        "michiruf/laravel-collection-differ": "0.1",
+        "michiruf/laravel-collection-differ": "0.2",
         "spatie/laravel-package-tools": "^1.16"
     },
     "require-dev": {
