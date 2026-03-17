@@ -1,11 +1,13 @@
 .idea
 .phpunit.cache
+bootstrap/cache/*
+!bootstrap/cache/.gitkeep
 build
 composer.lock
 coverage
 docs
 phpstan.neon
-testbench.yaml
+storage
 vendor
 node_modules
 .env

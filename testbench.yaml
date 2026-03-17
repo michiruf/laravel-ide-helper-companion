@@ -1,0 +1,4 @@
+laravel: '.'
+
+providers:
+  - Workbench\App\Providers\WorkbenchServiceProvider
